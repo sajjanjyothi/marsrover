@@ -59,12 +59,12 @@ class Rover:
         :return:
         """
         # Rotations
-        # lr -> left mapped to a
-        # lm->right mapped to b
+        # lr -> left mapped to <
+        # lm->right mapped to >
         # Replace lm and lr with something meaningful
 
-        sanitised_command = command.lower().replace('lm','b')
-        sanitised_command = sanitised_command.lower().replace('lr','a')
+        sanitised_command = command.lower().replace('lm','>')
+        sanitised_command = sanitised_command.lower().replace('lr','<')
         for value in sanitised_command:
             if value == 'l':
                 self.__move_rover(0,self.y-1,'n')
@@ -86,9 +86,9 @@ class Rover:
                     self.__move_rover(0,self.y-1,'n') #est right is down
                 else:
                     self.__move_rover(0,self.y+1,'n') #west right is up
-            elif value == 'b':
+            elif value == '>':
                 self.__move_rover(0,0,'r')
-            elif value == 'a':
+            elif value == '<':
                 self.__move_rover(0,0,'l')
             else:
                 raise Exception('Unknown command')
